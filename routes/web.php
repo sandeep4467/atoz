@@ -19,9 +19,13 @@ Route::get('/idd', function () {
     return view('idd');
 });
 
-Route::get('/ff', function () {
+/*Route::get('/ff', function () {
     return view('ff');
-});
+});*/
+
+Route::get('/ff', 'PdfController@getFF');
+Route::get('/logout', 'PdfController@logout');
+
 
 Route::get('/sutability', function () {
     return view('sutability');
@@ -35,3 +39,19 @@ Route::post('idd', 'PdfController@getPDF1');
 Route::post('ff', 'PdfController@getPDF2');
 Route::post('sutability', 'PdfController@getPDF3');
 Route::post('fee-agreement', 'PdfController@getPDF4');
+
+
+Route::get('/signupform', function () {
+    return view('signup');
+});
+
+Route::get('/loginform', function () {
+    return view('login');
+});
+Route::post('login', 'PdfController@login');
+Route::post('signup', 'PdfController@signup');
+Route::get('clearFF/{user_id}', 'PdfController@clearFF');
+
+
+
+
